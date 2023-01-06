@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/initial_page.dart';
-import 'components/coding_helper_layout.dart';
+import 'components/layout/coding_helper_layout.dart';
 
 void main() {
   runApp(const MyApp());

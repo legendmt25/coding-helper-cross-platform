@@ -34,7 +34,7 @@ class _CodingHelperLayoutState extends State<CodingHelperLayout> {
             return widget.children
                 .map(
                   (child) => Offstage(
-                    key: ValueKey(index),
+                    key: UniqueKey(),
                     offstage: pageIndex != index++,
                     child: child,
                   ),
