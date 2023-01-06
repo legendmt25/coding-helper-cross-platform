@@ -1,15 +1,22 @@
-# coding_helper_cross_platform
+# Coding helper (Flutter)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+.
+├── ...
+├── src                     # Source folder
+│   ├── components          # Flutter components (widgets)
+│   ├── services            # Services for fetching data
+│       ├── ...
+|       └── index.dart      # All services exports 
+│   ├── context             # Context providers
+│       ├── ...
+|       └── index.dart      # All context provider exports 
+│   ├── pages               # Getting started guide
+│   ├── ...
+|   └── main.dart           # Main material component (widget)
+├── pubspec.yaml            # Dependencies
+└── ...
+```
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
