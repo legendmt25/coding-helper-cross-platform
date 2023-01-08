@@ -8,15 +8,30 @@ enum ErrorCode {
   const ErrorCode(this.value);
 }
 
+class UserData {
+  String username;
+  String image;
+
+  UserData(this.username, this.image);
+}
+
 class SharedContext extends ChangeNotifier {
   String? _jwttoken;
   int? _errorCode;
+  UserData? _userData;
 
   bool get isAuthenticated => jwttoken != null;
 
   String? get jwttoken => _jwttoken;
 
   int? get errorCode => _errorCode;
+
+  UserData? get userData => _userData;
+
+  void setUserData(String username, String image) {
+    _userData = UserData(username, image);
+    notifyListeners();
+  }
 
   void setToken(String jwttoken) {
     _jwttoken = jwttoken;

@@ -29,17 +29,20 @@ class ListOptions extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(5),
-            child: Wrap(
-              direction: Axis.horizontal,
-              children: (() => options
-                  .map(
-                    (option) => ClosingButton(
-                      label: option,
-                      onTap: () => onRemove != null ? onRemove!(index++) : null,
-                    ),
-                  )
-                  .toList())(),
-            ),
+            child: options.isEmpty
+                ? const Text('Options ex: search: two way')
+                : Wrap(
+                    direction: Axis.horizontal,
+                    children: (() => options
+                        .map(
+                          (option) => ClosingButton(
+                            label: option,
+                            onTap: () =>
+                                onRemove != null ? onRemove!(index++) : null,
+                          ),
+                        )
+                        .toList())(),
+                  ),
           ),
         ),
       ),

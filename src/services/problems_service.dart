@@ -6,12 +6,26 @@ class ProblemEntry {
   String? description;
   String difficulty;
 
-  ProblemEntry(this.id, this.title, this.code, this.markdown, this.description, this.difficulty);
+  ProblemEntry(
+    this.id,
+    this.title,
+    this.code,
+    this.markdown,
+    this.description,
+    this.difficulty,
+  );
 }
 
 List<ProblemEntry> ENTRIES = [
   ProblemEntry('0', 'title', 'code', 'markdown', 'description', 'Easy'),
-  ProblemEntry('1', 'title', 'code', 'markdown', 'description', 'Medium')
+  ProblemEntry('1', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('2', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('3', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('4', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('5', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('6', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('7', 'title', 'code', 'markdown', 'description', 'Medium'),
+  ProblemEntry('8', 'title', 'code', 'markdown', 'description', 'Medium'),
 ];
 
 class ProblemsService {

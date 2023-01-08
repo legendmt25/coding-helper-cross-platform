@@ -33,10 +33,13 @@ class HorizontalListView extends StatelessWidget {
                         .map(
                           (item) => SizedBox(
                             width: constraints.maxWidth * 0.2,
-                            child: ListTile(
-                              key: item.key,
-                              title: const Text('title'),
-                              onTap: item.onTap,
+                            child: Card(
+                              elevation: 5,
+                              child: ListTile(
+                                key: item.key,
+                                title: const Text('title'),
+                                onTap: item.onTap,
+                              ),
                             ),
                           ),
                         )

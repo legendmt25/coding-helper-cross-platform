@@ -7,6 +7,10 @@ import 'components/layout/coding_helper_layout.dart';
 import 'pages/problems/problem_overview_page.dart';
 import 'pages/problems/problems_discover_page.dart';
 import 'pages/problems/problems_overview_page.dart';
+import 'pages/profile/profile_page.dart';
+import 'pages/profile/saved_page.dart';
+import 'pages/profile/settings_page.dart';
+import 'pages/profile/stats_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +20,7 @@ class MyApp extends StatelessWidget {
   static final List<Widget> widgets = [
     const InitialPage(),
     const ProblemsOverviewPage(),
+    const ProfilePage(),
   ];
 
   const MyApp({super.key});
@@ -37,6 +42,9 @@ class MyApp extends StatelessWidget {
           '/': (context) => CodingHelperLayout(widgets),
           '/problem-overview': (context) => const ProblemOverviewPage(),
           '/problems-discover': (context) => const ProblemsDiscoverPage(),
+          '/stats': (context) => const StatsPage(),
+          '/saved': (context) => const SavedPage(),
+          '/settings': (context) => const SettingsPage(),
         },
       ),
     );

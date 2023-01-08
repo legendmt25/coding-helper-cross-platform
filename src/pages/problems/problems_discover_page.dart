@@ -112,48 +112,54 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
             )
           : Padding(
               padding: const EdgeInsets.all(5).copyWith(bottom: 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: CustomScrollView(slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.filter_alt),
-                        label: const Text('Filter'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.filter_alt),
+                            label: const Text('Filter'),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.more_horiz_rounded),
+                            label: const Text('Sort'),
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.settings),
+                            label: const Text('View'),
+                          ),
+                        ],
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.more_horiz_rounded),
-                        label: const Text('Sort'),
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.settings),
-                        label: const Text('View'),
+                      ListOptions(
+                          options: options, onRemove: handleRemoveOption),
+                      Expanded(
+                        child: VerticalListView(
+                          children: problems
+                              .map(
+                                (entry) => ListItem(
+                                  title: entry.title,
+                                  onTap: () => navigator.pushNamed(
+                                    '/problem-overview',
+                                    arguments: {'id': entry.id},
+                                  ),
+                                  subtitle: entry.description,
+                                ),
+                              )
+                              .toList(),
+                        ),
                       ),
                     ],
                   ),
-                  ListOptions(options: options, onRemove: handleRemoveOption),
-                  Expanded(
-                    child: VerticalListView(
-                      children: problems
-                          .map(
-                            (entry) => ListItem(
-                              title: entry.title,
-                              onTap: () => navigator.pushNamed(
-                                '/problem-overview',
-                                arguments: {'id': entry.id},
-                              ),
-                              subtitle: entry.description,
-                            ),
-                          )
-                          .toList(),
-                    ),
-                  ),
-                ],
-              ),
+                )
+              ]),
             ),
     );
   }

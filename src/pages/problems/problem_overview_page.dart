@@ -92,83 +92,94 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
             child: CircularProgressIndicator.adaptive(),
           );
         }
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: constraints.maxHeight * 0.3,
-              child: Card(
-                elevation: 2,
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        return CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(
+                    height: constraints.maxHeight * 0.25,
+                    child: Card(
+                      elevation: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: const Icon(Icons.abc, size: 64),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Difficulty ${problem?.code}'),
+                                    Text('Duration ${problem?.code}'),
+                                    Text('Participants ${problem?.code}'),
+                                    Text('Reviews ${problem?.code}'),
+                                  ],
+                                )
+                              ],
+                            ),
+                            Text(problem!.title),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                DropdownButton(
+                                  value: selectedLanguage,
+                                  items: CodeEditor.EDITOR_LANGUAGES.keys
+                                      .map(
+                                        (language) => DropdownMenuItem(
+                                          value: language,
+                                          child: Text(language),
+                                        ),
+                                      )
+                                      .toList(),
+                                  onChanged: handleChangeLanguage,
+                                ),
+                                ElevatedButton(
+                                    onPressed: handleTapStart,
+                                    child: const Text('Start'))
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: const Icon(Icons.abc, size: 64),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Difficulty ${problem?.code}'),
-                              Text('Duration ${problem?.code}'),
-                              Text('Participants ${problem?.code}'),
-                              Text('Reviews ${problem?.code}'),
-                            ],
-                          )
+                          const Text('Description'),
+                          Text(problem!.description ?? 'No description')
                         ],
                       ),
-                      Text(problem!.title),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          DropdownButton(
-                            value: selectedLanguage,
-                            items: CodeEditor.EDITOR_LANGUAGES.keys
-                                .map(
-                                  (language) => DropdownMenuItem(
-                                    value: language,
-                                    child: Text(language),
-                                  ),
-                                )
-                                .toList(),
-                            onChanged: handleChangeLanguage,
-                          ),
-                          ElevatedButton(
-                              onPressed: handleTapStart,
-                              child: const Text('Start'))
-                        ],
-                      )
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ),
-            Card(
-              elevation: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Description'),
-                    Text(problem!.description ?? 'No description')
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: VerticalListView(
-                children: [
-                  ListItem(title: 'Attempt 1', subtitle: 'Test cases 8/8'),
-                  ListItem(title: 'Attempt 1', subtitle: 'Test cases 8/8'),
-                  ListItem(title: 'Attempt 1', subtitle: 'Test cases 8/8'),
-                  ListItem(title: 'Attempt 1', subtitle: 'Test cases 8/8'),
+                  Expanded(
+                    child: VerticalListView(
+                      children: [
+                        ListItem(
+                          title: 'Attempt 1',
+                          subtitle: 'Test cases 8/8',
+                        ),
+                        ListItem(
+                          title: 'Attempt 2',
+                          subtitle: 'Test cases 4/8',
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

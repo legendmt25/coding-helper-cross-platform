@@ -4,9 +4,15 @@ class ListItem {
   String? title;
   String? subtitle;
   Widget? image;
+  Widget trailing;
   void Function()? onTap;
 
-  ListItem({this.title, this.subtitle, this.image, this.onTap});
+  ListItem(
+      {this.title,
+      this.subtitle,
+      this.image,
+      this.onTap,
+      this.trailing = const Icon(Icons.arrow_forward_ios)});
 }
 
 class VerticalListView extends StatelessWidget {
@@ -17,27 +23,27 @@ class VerticalListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
-        ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
       elevation: 10,
-      child: ListView(
+      child: Column(
         children: children
             .map(
               (item) => [
                 InkWell(
                   onTap: item.onTap,
                   child: ListTile(
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: const Icon(Icons.abc, size: 32),
-                    ),
+                    leading: item.image != null
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: item.image,
+                          )
+                        : null,
                     title: item.title != null ? Text(item.title!) : null,
                     subtitle:
                         item.subtitle != null ? Text(item.subtitle!) : null,
-                    trailing: const Icon(Icons.arrow_forward_ios),
+                    trailing: item.trailing,
                   ),
                 ),
                 const Divider(
@@ -46,9 +52,9 @@ class VerticalListView extends StatelessWidget {
               ],
             )
             .expand((element) => element)
+            .take(2 * children.length - 1)
             .toList(),
       ),
     );
-    ;
   }
 }

@@ -65,69 +65,89 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
             child: CircularProgressIndicator.adaptive(),
           );
         }
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: constraints.maxHeight * 0.17,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FloatingTile(
-                    title: 'Recent',
-                    image: const Icon(Icons.abc, size: 64),
-                    onTap: () => navigator.pushNamed('/problems-discover'),
-                  ),
-                  FloatingTile(
-                    title: 'Contests',
-                    image: const Icon(Icons.abc, size: 64),
-                    onTap: () => navigator.pushNamed('/problems-discover'),
-                  ),
-                  FloatingTile(
-                    title: 'Discover',
-                    image: const Icon(Icons.abc, size: 64),
-                    onTap: () => navigator.pushNamed('/problems-discover'),
-                  ),
-                ],
+        return SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: constraints.maxHeight * 0.17,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FloatingTile(
+                      title: 'Recent',
+                      image: const Icon(Icons.abc, size: 64),
+                      onTap: () => navigator.pushNamed('/problems-discover'),
+                    ),
+                    FloatingTile(
+                      title: 'Contests',
+                      image: const Icon(Icons.abc, size: 64),
+                      onTap: () => navigator.pushNamed('/problems-discover'),
+                    ),
+                    FloatingTile(
+                      title: 'Discover',
+                      image: const Icon(Icons.abc, size: 64),
+                      onTap: () => navigator.pushNamed('/problems-discover'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: constraints.maxHeight * 0.4,
-              child: HorizontalListView(
-                items: problems
-                    .map(
-                      (entry) => Item(
-                        onTap: () {
-                          navigator.pushNamed(
-                            '/problem-overview',
-                            arguments: {'id': entry.id},
-                          );
-                        },
-                      ),
-                    )
-                    .toList(),
-                title: 'Active',
+              SizedBox(
+                height: constraints.maxHeight * 0.35,
+                child: HorizontalListView(
+                  items: problems
+                      .map(
+                        (entry) => Item(
+                          onTap: () {
+                            navigator.pushNamed(
+                              '/problem-overview',
+                              arguments: {'id': entry.id},
+                            );
+                          },
+                        ),
+                      )
+                      .toList(),
+                  title: 'Active',
+                ),
               ),
-            ),
-            SizedBox(
-              height: constraints.maxHeight * 0.4,
-              child: HorizontalListView(
-                items: problems
-                    .map(
-                      (entry) => Item(
-                        onTap: () {
-                          navigator.pushNamed(
-                            '/problem-overview',
-                            arguments: {'id': entry.id},
-                          );
-                        },
-                      ),
-                    )
-                    .toList(),
-                title: 'Recomended',
+              SizedBox(
+                height: constraints.maxHeight * 0.35,
+                child: HorizontalListView(
+                  items: problems
+                      .map(
+                        (entry) => Item(
+                          onTap: () {
+                            navigator.pushNamed(
+                              '/problem-overview',
+                              arguments: {'id': entry.id},
+                            );
+                          },
+                        ),
+                      )
+                      .toList(),
+                  title: 'Recomended',
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: constraints.maxHeight * 0.35,
+                child: HorizontalListView(
+                  items: problems
+                      .map(
+                        (entry) => Item(
+                          onTap: () {
+                            navigator.pushNamed(
+                              '/problem-overview',
+                              arguments: {'id': entry.id},
+                            );
+                          },
+                        ),
+                      )
+                      .toList(),
+                  title: 'Recomended',
+                ),
+              )
+            ],
+          ),
         );
       }),
     );
