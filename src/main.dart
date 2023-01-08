@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'context/index.dart';
 import 'pages/initial_page.dart';
 import 'components/layout/coding_helper_layout.dart';
+import 'pages/problems/problem_overview_page.dart';
 import 'pages/problems/problems_discover_page.dart';
 import 'pages/problems/problems_overview_page.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => CodingHelperLayout(widgets),
-          '/problem': (context) => const ProblemsOverviewPage(),
+          '/problem-overview': (context) => const ProblemOverviewPage(),
           '/problems-discover': (context) => const ProblemsDiscoverPage(),
         },
       ),

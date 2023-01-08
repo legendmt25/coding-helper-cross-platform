@@ -26,7 +26,7 @@ class CodeEditor extends StatelessWidget {
   final String theme;
   final CodeController controller;
 
-  const CodeEditor({super.key, required this.theme, required this.controller});
+  const CodeEditor({super.key, this.theme = 'dracula', required this.controller});
 
   @override
   Widget build(BuildContext context) {

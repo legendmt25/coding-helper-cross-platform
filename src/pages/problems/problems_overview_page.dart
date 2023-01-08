@@ -27,8 +27,6 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
     if (init) {
       return;
     }
-    print(init);
-
     setState(() {
       loading = true;
     });
@@ -101,7 +99,7 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                       (entry) => Item(
                         onTap: () {
                           navigator.pushNamed(
-                            '/problem',
+                            '/problem-overview',
                             arguments: {'id': entry.id},
                           );
                         },
@@ -119,7 +117,7 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                       (entry) => Item(
                         onTap: () {
                           navigator.pushNamed(
-                            '/problem',
+                            '/problem-overview',
                             arguments: {'id': entry.id},
                           );
                         },

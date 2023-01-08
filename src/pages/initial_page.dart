@@ -21,21 +21,8 @@ class _InitialPageState extends State<InitialPage> {
       appBar: AppBar(
         title: const Text('Initial page'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: LayoutBuilder(builder: (context, constraints) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: CodeEditor(
-                  theme: CodeEditor.EDITOR_THEMES.keys.elementAt(0),
-                  controller: codeController,
-                ),
-              ),
-            ],
-          );
-        }),
+      body: const Center(
+        child: Text('Home'),
       ),
     );
   }

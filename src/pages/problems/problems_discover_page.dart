@@ -79,6 +79,9 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
 
   @override
   Widget build(BuildContext context) {
+    final problemsContext = Provider.of<ProblemsContext>(context);
+    final navigator = Navigator.of(context);
+    final problems = problemsContext.entries;
     return Scaffold(
       appBar: AppBar(
         title: !showSearch
@@ -135,11 +138,18 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
                   ListOptions(options: options, onRemove: handleRemoveOption),
                   Expanded(
                     child: VerticalListView(
-                      children: [
-                        ListItem(onTap: () {}),
-                        ListItem(onTap: () {}),
-                        ListItem(onTap: () {}),
-                      ],
+                      children: problems
+                          .map(
+                            (entry) => ListItem(
+                              title: entry.title,
+                              onTap: () => navigator.pushNamed(
+                                '/problem-overview',
+                                arguments: {'id': entry.id},
+                              ),
+                              subtitle: entry.description,
+                            ),
+                          )
+                          .toList(),
                     ),
                   ),
                 ],
