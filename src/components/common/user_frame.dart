@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../context/index.dart';
+import '../../i18n/i18n.dart';
 
 const String DEFAULT_IMAGE_URL = 'https://media.istockphoto.com/id/1300845620' +
     '/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.webp' +
@@ -14,6 +15,8 @@ class UserFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     final sharedContext = Provider.of<SharedContext>(context);
     final userData = sharedContext.userData;
+
+    final t = getTranslation(context, 'profile');
 
     return SizedBox(
       width: double.infinity,
@@ -28,7 +31,7 @@ class UserFrame extends StatelessWidget {
                   userData?.image ?? DEFAULT_IMAGE_URL,
                 ),
               ),
-              Text(userData?.username ?? 'Not logged in!')
+              Text(userData?.username ?? t('notLoggedIn'))
             ],
           ),
         ),

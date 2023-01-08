@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../components/common/user_frame.dart';
 import '../../components/common/vertical_list_view.dart';
 import '../../context/index.dart';
+import '../../i18n/i18n.dart';
 
 class SavedPage extends StatelessWidget {
   const SavedPage({super.key});
@@ -13,9 +14,11 @@ class SavedPage extends StatelessWidget {
     final sharedContext = Provider.of<SharedContext>(context);
     final userData = sharedContext.userData;
 
+    final t = getTranslation(context, 'profile.saved');
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Saved'),
+          title: Text(t('title')),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -26,7 +29,7 @@ class SavedPage extends StatelessWidget {
                 children: [
                   ListItem(
                     title: 'Test project',
-                    subtitle: 'language: ${'react'}',
+                    subtitle: '${t('language')}: ${'react'}',
                     onTap: () {},
                   ),
                 ],

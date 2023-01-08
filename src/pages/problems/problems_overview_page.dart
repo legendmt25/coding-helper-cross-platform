@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../components/common/floating_tile.dart';
 import '../../components/common/horizontal_list_view.dart';
 import '../../context/index.dart';
+import '../../i18n/i18n.dart';
 import '../../services/index.dart';
 
 class ProblemsOverviewPage extends StatefulWidget {
@@ -55,9 +56,11 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
     final problemsContext = Provider.of<ProblemsContext>(context);
     final problems = problemsContext.entries;
 
+    final t = getTranslation(context, 'problems');
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Problems'),
+        title: Text(t('title')),
       ),
       body: LayoutBuilder(builder: (context, constraints) {
         if (loading) {
@@ -75,17 +78,17 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FloatingTile(
-                      title: 'Recent',
+                      title: t('recent.title'),
                       image: const Icon(Icons.abc, size: 64),
                       onTap: () => navigator.pushNamed('/problems-discover'),
                     ),
                     FloatingTile(
-                      title: 'Contests',
+                      title: t('contests.title'),
                       image: const Icon(Icons.abc, size: 64),
                       onTap: () => navigator.pushNamed('/problems-discover'),
                     ),
                     FloatingTile(
-                      title: 'Discover',
+                      title: t('discover.title'),
                       image: const Icon(Icons.abc, size: 64),
                       onTap: () => navigator.pushNamed('/problems-discover'),
                     ),
@@ -107,7 +110,7 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                         ),
                       )
                       .toList(),
-                  title: 'Active',
+                  title: t('active'),
                 ),
               ),
               SizedBox(
@@ -125,7 +128,7 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                         ),
                       )
                       .toList(),
-                  title: 'Recomended',
+                  title: t('recommended'),
                 ),
               ),
               SizedBox(
@@ -143,7 +146,7 @@ class _ProblemsOverviewPageState extends State<ProblemsOverviewPage> {
                         ),
                       )
                       .toList(),
-                  title: 'Recomended',
+                  title: t('recommended'),
                 ),
               )
             ],

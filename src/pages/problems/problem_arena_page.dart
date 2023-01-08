@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 
 import '../../components/common/code_editor.dart';
+import '../../i18n/i18n.dart';
 import '../../services/index.dart';
 
 class ProblemArenaPage extends StatelessWidget {
@@ -24,6 +25,8 @@ class ProblemArenaPage extends StatelessWidget {
     final language = params['language'] as String;
     final problem = params['problem'] as ProblemEntry?;
 
+    final t = getTranslation(context, 'problem');
+
     codeController.language = CodeEditor.EDITOR_LANGUAGES[language];
 
     return DefaultTabController(
@@ -32,13 +35,13 @@ class ProblemArenaPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(problem?.title ?? ''),
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
               Tab(
-                child: Text('Problem'),
+                child: Text(t('description')),
               ),
               Tab(
-                child: Text('Editor'),
+                child: Text(t('editor')),
               ),
             ],
           ),
@@ -66,11 +69,11 @@ class ProblemArenaPage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: handleTest,
-                      child: const Text('Test'),
+                      child: Text(t('test')),
                     ),
                     TextButton(
                       onPressed: handleSubmit,
-                      child: const Text('Submit'),
+                      child: Text(t('submit')),
                     ),
                   ],
                 )

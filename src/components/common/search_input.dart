@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../i18n/i18n.dart';
+
 class SearchInput extends StatelessWidget {
   final TextEditingController controller;
   final void Function()? onClear;
@@ -9,13 +11,15 @@ class SearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tListOptions = getTranslation(context, 'listOptions');
+
     return SizedBox(
       height: 40,
       child: TextField(
         controller: controller,
         onSubmitted: (value) => onSubmit != null ? onSubmit!() : null,
         decoration: InputDecoration(
-          hintText: 'Search',
+          hintText: tListOptions('search'),
           suffixIcon: IconButton(
             onPressed: onClear,
             icon: const Icon(Icons.clear),

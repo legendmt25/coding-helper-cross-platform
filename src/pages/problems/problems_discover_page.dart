@@ -5,6 +5,7 @@ import '../../components/common/list_options.dart';
 import '../../components/common/search_input.dart';
 import '../../components/common/vertical_list_view.dart';
 import '../../context/index.dart';
+import '../../i18n/i18n.dart';
 import '../../services/index.dart';
 
 class ProblemsDiscoverPage extends StatefulWidget {
@@ -82,10 +83,14 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
     final problemsContext = Provider.of<ProblemsContext>(context);
     final navigator = Navigator.of(context);
     final problems = problemsContext.entries;
+
+    final t = getTranslation(context, 'problems.discover');
+    final tListOptions = getTranslation(context, 'listOptions');
+
     return Scaffold(
       appBar: AppBar(
         title: !showSearch
-            ? const Text('Discover')
+            ? Text(t('title'))
             : SearchInput(
                 controller: searchController,
                 onClear: handleClearSearch,
@@ -124,17 +129,17 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
                           ElevatedButton.icon(
                             onPressed: () {},
                             icon: const Icon(Icons.filter_alt),
-                            label: const Text('Filter'),
+                            label: Text(tListOptions('filters')),
                           ),
                           ElevatedButton.icon(
                             onPressed: () {},
                             icon: const Icon(Icons.more_horiz_rounded),
-                            label: const Text('Sort'),
+                            label: Text(tListOptions('sort')),
                           ),
                           ElevatedButton.icon(
                             onPressed: () {},
                             icon: const Icon(Icons.settings),
-                            label: const Text('View'),
+                            label: Text(tListOptions('view')),
                           ),
                         ],
                       ),

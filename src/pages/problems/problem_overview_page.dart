@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../components/common/code_editor.dart';
+import '../../components/common/dropdown.dart';
 import '../../components/common/vertical_list_view.dart';
 import '../../context/index.dart';
+import '../../i18n/i18n.dart';
 import '../../services/index.dart';
 import 'problem_arena_page.dart';
 
@@ -82,6 +84,8 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
 
   @override
   Widget build(BuildContext context) {
+    final t = getTranslation(context, 'problem');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(problem?.title ?? ''),
@@ -119,10 +123,10 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('Difficulty ${problem?.code}'),
-                                    Text('Duration ${problem?.code}'),
-                                    Text('Participants ${problem?.code}'),
-                                    Text('Reviews ${problem?.code}'),
+                                    Text('${t('difficulty')} ${problem?.code}'),
+                                    Text('${t('duration')} ${problem?.code}'),
+                                    Text('${t('participants')} ${problem?.code}'),
+                                    Text('${t('reviews')} ${problem?.code}'),
                                   ],
                                 )
                               ],
@@ -131,21 +135,22 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                DropdownButton(
+                                Dropdown(
                                   value: selectedLanguage,
                                   items: CodeEditor.EDITOR_LANGUAGES.keys
                                       .map(
-                                        (language) => DropdownMenuItem(
-                                          value: language,
-                                          child: Text(language),
+                                        (language) => DropdownItem(
+                                          language,
+                                          language,
                                         ),
                                       )
                                       .toList(),
-                                  onChanged: handleChangeLanguage,
+                                  onChange: handleChangeLanguage,
                                 ),
                                 ElevatedButton(
-                                    onPressed: handleTapStart,
-                                    child: const Text('Start'))
+                                  onPressed: handleTapStart,
+                                  child: Text(t('start')),
+                                )
                               ],
                             )
                           ],
@@ -160,8 +165,8 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Description'),
-                          Text(problem!.description ?? 'No description')
+                          Text(t('description')),
+                          Text(problem!.description ?? t('noDescription'))
                         ],
                       ),
                     ),
@@ -170,12 +175,12 @@ class _ProblemOverviewPageState extends State<ProblemOverviewPage> {
                     child: VerticalListView(
                       children: [
                         ListItem(
-                          title: 'Attempt 1',
-                          subtitle: 'Test cases 8/8',
+                          title: '${t('attempt')} 1',
+                          subtitle: '${t('testCases')} 8/8',
                         ),
                         ListItem(
-                          title: 'Attempt 2',
-                          subtitle: 'Test cases 4/8',
+                          title: '${t('attempt')} 1',
+                          subtitle: '${t('testCases')} 8/8',
                         ),
                       ],
                     ),

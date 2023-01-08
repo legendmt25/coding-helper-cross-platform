@@ -1,0 +1,91 @@
+{
+  "coding_helper": {
+    "colors": {
+      "purple": "Purple",
+      "green": "Green",
+      "blue": "Blue",
+      "red": "Red"
+    },
+    "languages": {
+      "en": "English",
+      "de": "German",
+      "mk": "Macedonian"
+    },
+    "themes": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "listOptions": {
+      "filters": "Filters",
+      "sort": "Sort",
+      "view": "View",
+      "search": "Search",
+      "optionsPlaceholder": "Options ex: search: two way"
+    },
+    "home": {
+      "title": "Home"
+    },
+    "problems": {
+      "title": "Problems",
+      "recent": {
+        "title": "Recent"
+      },
+      "contests": {
+        "title": "Contests"
+      },
+      "discover": {
+        "title": "Discover"
+      },
+      "active": "Active",
+      "recommended": "Recommended"
+    },
+    "problem": {
+      "difficulty": "Difficulty",
+      "duration": "Duration",
+      "participants": "Participants",
+      "reviews": "Reviews",
+      "description": "description",
+      "noDescription": "No description!",
+      "attempt": "attempt",
+      "testCases": "Test cases",
+      "editor": "Editor",
+      "start": "Start",
+      "test": "Test",
+      "submit": "Submit"
+    },
+    "profile": {
+      "title": "Profile",
+      "notLoggedIn": "Not logged in!",
+      "stats": {
+        "title": "Stats",
+        "problemsSolved": "Problems solved",
+        "coursesFinished": "Courses Finished",
+        "comments": "Comments",
+        "posts": "Posts",
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "saved": {
+        "title": "Saved",
+        "language": "Language"
+      },
+      "history": {
+        "title": "History"
+      },
+      "settings": {
+        "title": "Settings",
+        "theme": "Theme",
+        "accentColor": "Accent",
+        "defaultLanguage": "Default Language",
+        "applicationLanguage": "Application Language"
+      },
+      "logout": "Logout"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "coding_helper": {
+    "colors": {
+      "purple": "Виолетова",
+      "green": "Зелена",
+      "blue": "Сина",
+      "red": "Црвена"
+    },
+    "languages": {
+      "en": "Англиски",
+      "de": "Германски",
+      "mk": "Македонски"
+    },
+    "themes": {
+      "light": "Светла",
+      "dark": "Темна"
+    },
+    "difficulty": {
+      "easy": "Лесно",
+      "medium": "Средно",
+      "hard": "Тешко"
+    },
+    "listOptions": {
+      "filters": "Филтри",
+      "sort": "Сортирање",
+      "view": "Поглед",
+      "search": "Пребарувај",
+      "optionsPlaceholder": "Опции пр: search: two way"
+    },
+    "home": {
+      "title": "Дома"
+    },
+    "problems": {
+      "title": "Проблеми",
+      "recent": {
+        "title": "Неодамна"
+      },
+      "contests": {
+        "title": "Натпревари"
+      },
+      "discover": {
+        "title": "Истражи"
+      },
+      "active": "Активни",
+      "recommended": "Препорачани"
+    },
+    "problem": {
+      "difficulty": "Тежина",
+      "duration": "Траење",
+      "participants": "Учесници",
+      "reviews": "Прегледи",
+      "description": "Опис",
+      "noDescription": "Не постои опис!",
+      "attempt": "Обид",
+      "testCases": "Тест случаи",
+      "editor": "Едитор",
+      "start": "Старт",
+      "test": "Тестирај",
+      "submit": "Поднеси"
+    },
+    "profile": {
+      "title": "Профил",
+      "notLoggedIn": "Не сте логирани!",
+      "stats": {
+        "title": "Статистика",
+        "problemsSolved": "Решени проблеми",
+        "coursesFinished": "Завршени курсеви",
+        "comments": "Коментари",
+        "posts": "Постови",
+        "easy": "Лесни",
+        "medium": "Средни",
+        "hard": "Тешки"
+      },
+      "saved": {
+        "title": "Зачувано",
+        "language": "Програмски јазик"
+      },
+      "history": {
+        "title": "Историја"
+      },
+      "settings": {
+        "title": "Поставки",
+        "theme": "Тема",
+        "accentColor": "Акцентна боја",
+        "defaultLanguage": "Стандарден програмски јазик",
+        "applicationLanguage": "Јазик"
+      },
+      "logout": "Одлогирај се"
+    }
+  }
+}

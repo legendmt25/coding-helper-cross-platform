@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 
 import '../components/common/code_editor.dart';
+import '../i18n/i18n.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -17,12 +18,13 @@ class _InitialPageState extends State<InitialPage> {
 
   @override
   Widget build(BuildContext context) {
+    final t = getTranslation(context, 'home');
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Initial page'),
+        title: Text(t('title')),
       ),
-      body: const Center(
-        child: Text('Home'),
+      body: Center(
+        child: Text(t('title')),
       ),
     );
   }

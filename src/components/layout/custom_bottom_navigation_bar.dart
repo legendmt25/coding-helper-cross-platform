@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../i18n/i18n.dart';
+
 class CustomBottomNavigationBar extends StatelessWidget {
   final int pageIndex;
   final void Function(int value) onChange;
@@ -9,31 +11,32 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const navigationBarItemActiveColor = Colors.lightBlue;
+    final t = getTranslation(context);
 
     return BottomNavigationBar(
       currentIndex: pageIndex,
       onTap: onChange,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.abc),
-          label: 'Home',
-          activeIcon: Icon(
+          icon: const Icon(Icons.abc),
+          label: t('home.title'),
+          activeIcon: const Icon(
             Icons.abc,
             color: navigationBarItemActiveColor,
           ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.menu_book),
-          label: 'Problems',
-          activeIcon: Icon(
+          icon: const Icon(Icons.menu_book),
+          label: t('problems.title'),
+          activeIcon: const Icon(
             Icons.menu_book,
             color: navigationBarItemActiveColor,
           ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-          activeIcon: Icon(
+          icon: const Icon(Icons.person),
+          label: t('profile.title'),
+          activeIcon: const Icon(
             Icons.person,
             color: navigationBarItemActiveColor,
           ),

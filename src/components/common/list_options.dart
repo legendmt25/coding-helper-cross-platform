@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../i18n/i18n.dart';
 import 'closing_button.dart';
 
 enum Command {
@@ -21,6 +22,8 @@ class ListOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = getTranslation(context, 'listOptions');
+
     int index = 0;
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 50, maxHeight: 100),
@@ -30,7 +33,7 @@ class ListOptions extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(5),
             child: options.isEmpty
-                ? const Text('Options ex: search: two way')
+                ? Text(t('optionsPlaceholder'))
                 : Wrap(
                     direction: Axis.horizontal,
                     children: (() => options

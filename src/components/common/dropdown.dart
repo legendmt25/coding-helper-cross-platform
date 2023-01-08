@@ -12,8 +12,7 @@ class Dropdown extends StatelessWidget {
   final List<DropdownItem> items;
   final void Function(String? value)? onChange;
 
-  const Dropdown(
-      {super.key, this.onChange, this.value, required this.items});
+  const Dropdown({super.key, this.onChange, this.value, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,10 @@ class Dropdown extends StatelessWidget {
           .map(
             (item) => DropdownMenuItem(
               value: item.value,
-              child: SizedBox(width: 100, child: Text(item.label)),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: 100),
+                child: Text(item.label),
+              ),
             ),
           )
           .toList(),

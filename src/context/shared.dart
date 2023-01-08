@@ -15,10 +15,28 @@ class UserData {
   UserData(this.username, this.image);
 }
 
+class AppSettings {
+  String? locale = 'en';
+  String? defaultLanguage;
+  String? accentColor;
+  String? theme;
+}
+
+enum Language {
+  EN('en'),
+  DE('de'),
+  MK('mk');
+
+  final String value;
+
+  const Language(this.value);
+}
+
 class SharedContext extends ChangeNotifier {
   String? _jwttoken;
   int? _errorCode;
   UserData? _userData;
+  final AppSettings _settings = AppSettings();
 
   bool get isAuthenticated => jwttoken != null;
 
@@ -27,6 +45,30 @@ class SharedContext extends ChangeNotifier {
   int? get errorCode => _errorCode;
 
   UserData? get userData => _userData;
+
+  AppSettings? get appSettings => _settings;
+
+  String get locale => _settings.locale ?? 'en';
+
+  void setLocale(String? language) {
+    _settings.locale = language;
+    notifyListeners();
+  }
+
+  void setAccentColor(String? accentColor) {
+    _settings.accentColor = accentColor;
+    notifyListeners();
+  }
+
+  void setTheme(String? theme) {
+    _settings.theme = theme;
+    notifyListeners();
+  }
+
+  void setDefaultLanguage(String? language) {
+    _settings.defaultLanguage = language;
+    notifyListeners();
+  }
 
   void setUserData(String username, String image) {
     _userData = UserData(username, image);
