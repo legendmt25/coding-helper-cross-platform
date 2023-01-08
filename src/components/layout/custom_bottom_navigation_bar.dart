@@ -23,6 +23,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
           ),
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.menu_book),
+          label: 'Problems',
+          activeIcon: Icon(
+            Icons.menu_book,
+            color: navigationBarItemActiveColor,
+          ),
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Profile',
           activeIcon: Icon(

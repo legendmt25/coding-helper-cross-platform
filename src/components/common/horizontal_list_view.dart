@@ -15,31 +15,39 @@ class HorizontalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      elevation: 3,
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (title != null) Text(title!),
-            Expanded(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: items
-                    .map(
-                      (item) => ListTile(
-                        key: item.key,
-                        onTap: item.onTap,
-                      ),
-                    )
-                    .toList(),
-              ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          elevation: 3,
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (title != null) Text(title!),
+                Expanded(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: items
+                        .map(
+                          (item) => SizedBox(
+                            width: constraints.maxWidth * 0.2,
+                            child: ListTile(
+                              key: item.key,
+                              title: const Text('title'),
+                              onTap: item.onTap,
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      }
     );
   }
 }
