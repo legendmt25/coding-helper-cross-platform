@@ -21,9 +21,12 @@ class UserFrame extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        elevation: 2,
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(30),
           child: Column(
             children: [
               CircleAvatar(

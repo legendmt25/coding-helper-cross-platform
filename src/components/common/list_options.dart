@@ -4,7 +4,9 @@ import '../../i18n/i18n.dart';
 import 'closing_button.dart';
 
 enum Command {
-  SEARCH('search');
+  SEARCH('search'),
+  FILTER('filter'),
+  SORT('sort');
 
   final String value;
   const Command(this.value);

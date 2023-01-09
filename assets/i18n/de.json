@@ -20,6 +20,11 @@
       "medium": "Medium",
       "hard": "Hard"
     },
+    "modal": {
+      "filter": "Filter",
+      "cancel": "Cancel",
+      "sort": "Sort"
+    },
     "listOptions": {
       "filters": "Filters",
       "sort": "Sort",

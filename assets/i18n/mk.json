@@ -20,6 +20,11 @@
       "medium": "Средно",
       "hard": "Тешко"
     },
+    "modal": {
+      "filter": "Филтрирај",
+      "cancel": "Затвори",
+      "sort": "Сортирај"
+    },
     "listOptions": {
       "filters": "Филтри",
       "sort": "Сортирање",

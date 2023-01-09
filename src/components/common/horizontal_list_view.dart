@@ -19,7 +19,7 @@ class HorizontalListView extends StatelessWidget {
       builder: (context, constraints) {
         return Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          elevation: 3,
+          elevation: 2,
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
@@ -34,7 +34,7 @@ class HorizontalListView extends StatelessWidget {
                           (item) => SizedBox(
                             width: constraints.maxWidth * 0.2,
                             child: Card(
-                              elevation: 5,
+                              elevation: 2,
                               child: ListTile(
                                 key: item.key,
                                 title: const Text('title'),

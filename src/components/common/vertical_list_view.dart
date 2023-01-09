@@ -26,7 +26,7 @@ class VerticalListView extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      elevation: 10,
+      elevation: 2,
       child: Column(
         children: children
             .map(

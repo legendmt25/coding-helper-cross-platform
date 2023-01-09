@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/common/list_options.dart';
+import '../../components/common/modal.dart';
 import '../../components/common/search_input.dart';
 import '../../components/common/vertical_list_view.dart';
 import '../../context/index.dart';
@@ -78,6 +79,64 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
     });
   }
 
+  void showFiltersModal(BuildContext context) async {
+    final t = getTranslation(context, 'modal');
+
+    final Map<String, String?>? values = await showModalBottomSheet(
+      context: context,
+      builder: (context) => Modal(
+        options: const {
+          'language': ['java', 'javascript']
+        },
+        submitButton: t('filter'),
+      ),
+    );
+
+    if (values != null) {
+      final commands = values.entries
+          .map(
+            (entry) => createCommand(
+              Command.FILTER,
+              '${entry.key}-${entry.value}',
+            ),
+          )
+          .toList();
+      setState(() {
+        options.removeWhere((element) => commands.contains(element));
+        options.addAll(commands);
+      });
+    }
+  }
+
+  void showSortModal(BuildContext context) async {
+    final t = getTranslation(context, 'modal');
+
+    final Map<String, String?>? values = await showModalBottomSheet(
+      context: context,
+      builder: (context) => Modal(
+        options: const {
+          'difficulty': ['ascending', 'descending']
+        },
+        submitButton: t('sort'),
+      ),
+    );
+
+    if (values != null) {
+      final commands = values.entries
+          .map(
+            (entry) => createCommand(
+              Command.SORT,
+              '${entry.key}-${entry.value}',
+            ),
+          )
+          .toList();
+      setState(() {
+        options.removeWhere((element) => commands.contains(element));
+        options.addAll(commands);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final problemsContext = Provider.of<ProblemsContext>(context);
@@ -127,12 +186,12 @@ class _ProblemsDiscoverPageState extends State<ProblemsDiscoverPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () => showFiltersModal(context),
                             icon: const Icon(Icons.filter_alt),
                             label: Text(tListOptions('filters')),
                           ),
                           ElevatedButton.icon(
-                            onPressed: () {},
+                            onPressed: () => showSortModal(context),
                             icon: const Icon(Icons.more_horiz_rounded),
                             label: Text(tListOptions('sort')),
                           ),
